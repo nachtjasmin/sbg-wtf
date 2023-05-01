@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>selbstbestimmungsgesetz.wtf</title>
+		<style>
+			main {
+				padding: 1rem;
+				max-width: 600px;
+				margin: 0 auto;
+				font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+					Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+					sans-serif;
+			}
+			main > * + * {
+				margin-top: 1rem;
+			}
+			button {
+				background-color: white;
+				padding: 0.5rem 1rem;
+				border: 2px solid rebeccapurple;
+				font-weight: 600;
+				cursor: pointer;
+			}
+			button:hover {
+				background-color: rebeccapurple;
+				color: white;
+			}
+			.button-group {
+				display: flex;
+				flex-flow: column;
+				gap: 1rem;
+			}
+			blockquote {
+				font-style: italic;
+			}
+			cite {
+				display: block;
+				margin-top: 1rem;
+				font-style: normal;
+				font-size: 0.85rem;
+				color: #444;
+			}
+			form {
+				display: none;
+			}
+			form.current {
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<form class="current">
+				<h1>Der Selbstbestimmungsgesetz-Simulator</h1>
+				<p>
+					Basierend auf dem aktuellen Entwurf, hier schon jetzt
+					Selbstbestimmungsgesetz zum Durchspielen. Also: Möchtest du deinen
+					Namen und/oder Geschlechtseintrag ändern?
+				</p>
+				<div class="button-group">
+					<button type="button" data-go-to-step="are-you-sure">
+						Los geht's!
+					</button>
+				</div>
+			</form>
+			<form data-step="are-you-sure">
+				<h2>
+					Bist du dir sicher, dass der gewählte Geschlechtseintrag
+					(beziehungsweise die Streichung des Geschlechtseintrags) deiner
+					Geschlechtsidentität am besten entspricht?
+				</h2>
+				<div class="button-group">
+					<button type="button" data-go-to-step="are-you-really-sure">
+						Ja.
+					</button>
+				</div>
+			</form>
+			<form data-step="are-you-really-sure">
+				<h2>
+					Bist du dir der Tragweite der durch die Erklärung bewirkten Folgen
+					bewusst?
+				</h2>
+				<div class="button-group">
+					<button type="button" data-go-to-step="standesamt">
+						Ja. Sonst wär ich ja wohl nicht hier?
+					</button>
+				</div>
+			</form>
+			<form data-step="standesamt">
+				<h2>Herzlichen Glückwunsch. Dein Antrag wurde akzeptiert.</h2>
+				<p>
+					Aber da wir dir nicht zutrauen, selbstbestimmt Entscheidungen zu
+					treffen, musst du jetzt noch drei Monate warten.
+				</p>
+				<blockquote>
+					<p>§ 4 Wirksamkeit; Rücknahme der Erklärung.</p>
+					<p>
+						Die Änderung des Geschlechtseintrags oder der Vornamen wird erst
+						drei Monate nach der Erklärung gemäß § 2 im Personenstandsregister
+						eingetragen und wirksam. Innerhalb dieser Frist kann die Person ihre
+						Erklärung schriftlich gegenüber dem Standesamt, bei dem die
+						Erklärung nach § 2 abgegeben wurde, zurücknehmen.
+					</p>
+				</blockquote>
+				<div class="button-group">
+					<button type="button" data-go-to-step="data-changed">
+						Vorspulen zum
+						<time id="date-in-three-months">TIME_IN_THREE_MONTHS</time>
+					</button>
+				</div>
+			</form>
+			<form data-step="data-changed">
+				<h2>
+					Dein Bescheid wurde gewilligt. Du hast deine Daten nun geändert.
+				</h2>
+				<div class="button-group">
+					<button type="button" data-go-to-step="deadnaming">
+						Na endlich!
+					</button>
+				</div>
+			</form>
+			<form data-step="deadnaming">
+				<h2>Oh nein. Jemand hat dich gedeadnamed.</h2>
+				<p>Zu welcher Personengruppe gehört die Person?</p>
+				<div class="button-group">
+					<button type="button" data-go-to-step="deadnaming-family">
+						Eltern oder Großeltern
+					</button>
+					<button type="button" data-go-to-step="deadnaming-family">
+						dein(e) Kind(er)
+					</button>
+					<button type="button" data-go-to-step="deadnaming-others">
+						ein Arbeitskollege
+					</button>
+					<button type="button" data-go-to-step="deadnaming-others">
+						irgend so eine Person auf der Straße
+					</button>
+				</div>
+			</form>
+			<form data-step="deadnaming-family">
+				<h2>
+					Die Person ist vom Offenbarungsverbot ausgenommen. Du bist machtlos.
+				</h2>
+				<p>
+					Ja, wir haben im aktuellen Entwurf nur ein
+					<i>Offenbarungsverbot light</i>.
+				</p>
+				<blockquote>
+					(2) Der frühere und der derzeitige Ehegatte, die Verwandten in gerader
+					Linie und der andere Elternteil eines Kindes der in Absatz 1 genannten
+					Person sind nur dann verpflichtet, den geänderten Geschlechtseintrag
+					und die geänderten Vornamen anzugeben, wenn dies für die Führung
+					öffentlicher Bücher und Register oder im Rechtsverkehr erforderlich
+					ist. Satz 1 gilt nicht für
+					<ol>
+						<li>
+							Ehegatten aus nach der Änderung des Geschlechtseintrags
+							geschlossenen Ehen,
+						</li>
+						<li>
+							nach der Änderung des Geschlechtseintrags geborene oder
+							angenommene Kinder,
+						</li>
+						<li>
+							den anderen Elternteil von nach der Änderung des
+							Geschlechtseintrags geborenen oder angenommenen Kindern.
+						</li>
+					</ol>
+					<cite>§ 13 Offenbarungsverbot</cite>
+				</blockquote>
+				<div class="button-group">
+					<button type="button" data-go-to-step="call-to-action">
+						Ich will mich beschweren.
+					</button>
+				</div>
+			</form>
+			<form data-step="deadnaming-others">
+				<h2>Hat die Person deinen Deadname nur dir gegenüber geäußert?</h2>
+				<div class="button-group">
+					<button type="button" data-go-to-step="deadnaming-just-to-you">
+						Ja.
+					</button>
+					<button type="button" data-go-to-step="deadnaming-to-others">
+						Nein.
+					</button>
+				</div>
+			</form>
+			<form data-step="deadnaming-just-to-you">
+				<h2>Der Tatbestand der Offenbarung ist nicht erfüllt.</h2>
+				<blockquote>
+					Mangels Mitteilung an einen Dritten ist auch bei Äußerungen gegenüber
+					der Person selbst, die ihren Geschlechtseintrag oder ihre Vornamen
+					geändert hat, der Tatbestand des § 14 SBGG nicht erfüllt.
+					<cite>Begründung zum Offenbarungsverbot</cite>
+				</blockquote>
+			</form>
+			<form data-step="deadnaming-to-others">
+				<h2>Hat dich die Person aus versehentlich gedeadnamed?</h2>
+				<div class="button-group">
+					<button type="button" data-go-to-step="deadnaming-by-accident">
+						Ja, aber warum spielt das eine Rolle?
+					</button>
+					<button type="button" data-go-to-step="deadnaming-with-intent">
+						Nein.
+					</button>
+				</div>
+			</form>
+			<form data-step="deadnaming-by-accident">
+				<h2>
+					Ohne Absicht keine Ordnungswidrigkeit. Das Offenbarungsverbot greift
+					nicht.
+				</h2>
+				<blockquote>
+					Darüber hinaus wird eine Schädigungsabsicht der handelnden Person,
+					also ein auf die eingetretene Schädigung der betroffenen Person
+					abzielendes Handeln, vorausgesetzt; sie liegt nur vor, wenn der Täter
+					der betroffenen Person einen über die bloße Offenbarung
+					hinausgehenden, selbständigen Nachteil zufügen will.
+					<cite>Begründung zum Offenbarungsverbot</cite>
+				</blockquote>
+				<div class="button-group">
+					<button type="button" data-go-to-step="call-to-action">
+						Ich will mich beschweren.
+					</button>
+				</div>
+			</form>
+			<form data-step="deadnaming-with-intent">
+				<h2>Kannst du die Absicht auch sicher nachweisen?</h2>
+				<p>
+					Falls nicht, viel Erfolg. Die Beweislast liegt bei dir. Falls du es
+					schaffst, die Absicht zweifelsfrei nachzuweisen, kannst du dann das
+					Offenbarungsverbot durchsetzen.
+				</p>
+				<blockquote>
+					Darüber hinaus wird eine Schädigungsabsicht der handelnden Person,
+					also ein auf die eingetretene Schädigung der betroffenen Person
+					abzielendes Handeln, vorausgesetzt; sie liegt nur vor, wenn der Täter
+					der betroffenen Person einen über die bloße Offenbarung
+					hinausgehenden, selbständigen Nachteil zufügen will.
+					<cite>Begründung zum Offenbarungsverbot</cite>
+				</blockquote>
+				<div class="button-group">
+					<button type="button" data-go-to-step="call-to-action">
+						Ich will mich beschweren.
+					</button>
+				</div>
+			</form>
+			<form data-step="call-to-action">
+				<h2>Was soll der Scheiß?</h2>
+				<p>
+					Es ist Zeit, sich zu beschweren. Wir haben
+					<a href="https://2023.allegutendinge.jetzt/#write"
+						>gute Dinge verdient, und zwar jetzt.</a
+					>
+				</p>
+			</form>
+		</main>
+		<script>
+			const now = new Date();
+			const [year, month, day] = [
+				now.getFullYear(),
+				now.getMonth(),
+				now.getDate(),
+			];
+			document.getElementById("date-in-three-months").innerText = new Date(
+				Date.UTC(year, month + 3, day, 0, 0, 0)
+			).toLocaleDateString("de", {
+				dateStyle: "long",
+			});
+
+			const pushToHistory = () => {
+				const current = document.querySelector("form.current");
+				const step = current.getAttribute("data-step");
+				const title = current.querySelector("h2").innerText;
+
+				history.pushState({ step: step }, title, null);
+			};
+
+			const displayForm = (step) => {
+				document.querySelectorAll("form").forEach((f) => {
+					const fstep = f.getAttribute("data-step");
+					f.classList.toggle("current", step === fstep);
+				});
+			};
+
+			document.querySelectorAll("button").forEach((btn) => {
+				btn.addEventListener("click", (e) => {
+					const next = btn.getAttribute("data-go-to-step");
+
+					displayForm(next);
+					pushToHistory();
+				});
+			});
+			window.addEventListener("popstate", (e) => displayForm(e.state.step));
+		</script>
+	</body>
+</html>
