@@ -89,7 +89,35 @@
 					</button>
 				</div>
 			</form>
-			<form data-step="standesamt">
+			<form data-probability="0.1" data-step="standesamt">
+				<h2>
+					Der Standesbeamte glaubt dir nicht. Dein Antrag wurde abgelehnt.
+				</h2>
+				<div class="info">
+					<h3>Das geht?</h3>
+					<p>In der Begründung zum SBGG steht folgendes:</p>
+					<blockquote>
+						<b
+							>Der Geschlechtseintrag im Personenstandsregister kann nicht durch
+							bloße Erklärung geändert werden.
+						</b>
+						Für die Eintragung des Geschlechts im Personenstandsregister bedarf
+						es zum einen einer Eigenversicherung, vergleiche Absatz 2, zum
+						anderen einer tatsächlichen Handlung des Standesamts,
+						<b>so dass die Eintragung nicht rein deklaratorisch ist.</b>
+						<cite>Begründung zum SBGG, Hervorhebungen von mir</cite>
+					</blockquote>
+				</div>
+				<div class="button-group">
+					<button type="button" data-go-to-step="standesamt">
+						Erneut versuchen
+					</button>
+					<button type="button" data-go-to-step="call-to-action">
+						Ich will mich beschweren.
+					</button>
+				</div>
+			</form>
+			<form data-probability="0.9" data-step="standesamt">
 				<h2>Herzlichen Glückwunsch. Dein Antrag wurde akzeptiert.</h2>
 				<p>
 					Aber da wir dir nicht zutrauen, selbstbestimmt Entscheidungen zu
@@ -280,9 +308,19 @@
 			};
 
 			const displayForm = (step) => {
+				const random = Math.random();
 				document.querySelectorAll("form").forEach((f) => {
 					const fstep = f.getAttribute("data-step");
-					f.classList.toggle("current", step === fstep);
+					const probStr = f.getAttribute("data-probability");
+
+					// If there's no probability set, just display the step.
+					if (!probStr) {
+						f.classList.toggle("current", step === fstep);
+						return;
+					}
+
+					const prob = parseFloat(probStr);
+					f.classList.toggle("current", step === fstep && prob >= random);
 				});
 			};
 
