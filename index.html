@@ -46,10 +46,10 @@
 				font-size: 0.85rem;
 				color: #444;
 			}
-			form {
+			section {
 				display: none;
 			}
-			form.current {
+			section.current {
 				display: block;
 			}
 		</style>
@@ -60,7 +60,7 @@
 			viel. Hab es brav mit meinen eigenen Pfoten verfasst.
 		</noscript>
 		<main>
-			<form class="current">
+			<section class="current">
 				<h1>Der Selbstbestimmungsgesetz-Simulator</h1>
 				<p>
 					Basierend auf dem aktuellen Entwurf, hier schon jetzt
@@ -72,8 +72,8 @@
 						Los geht's!
 					</button>
 				</div>
-			</form>
-			<form data-step="are-you-sure">
+			</section>
+			<section data-step="are-you-sure">
 				<h2>
 					Bist du dir sicher, dass der gewählte Geschlechtseintrag
 					(beziehungsweise die Streichung des Geschlechtseintrags) deiner
@@ -84,8 +84,8 @@
 						Ja.
 					</button>
 				</div>
-			</form>
-			<form data-step="are-you-really-sure">
+			</section>
+			<section data-step="are-you-really-sure">
 				<h2>
 					Bist du dir der Tragweite der durch die Erklärung bewirkten Folgen
 					bewusst?
@@ -95,8 +95,8 @@
 						Ja. Sonst wär ich ja wohl nicht hier?
 					</button>
 				</div>
-			</form>
-			<form data-probability="0.1" data-step="standesamt">
+			</section>
+			<section data-probability="0.1" data-step="standesamt">
 				<h2>
 					Der Standesbeamte glaubt dir nicht. Dein Antrag wurde abgelehnt.
 				</h2>
@@ -123,8 +123,8 @@
 						Ich will mich beschweren.
 					</button>
 				</div>
-			</form>
-			<form data-probability="0.9" data-step="standesamt">
+			</section>
+			<section data-probability="0.9" data-step="standesamt">
 				<h2>Herzlichen Glückwunsch. Dein Antrag wurde akzeptiert.</h2>
 				<p>
 					Aber da wir dir nicht zutrauen, selbstbestimmt Entscheidungen zu
@@ -146,8 +146,8 @@
 						<time id="date-in-three-months">TIME_IN_THREE_MONTHS</time>
 					</button>
 				</div>
-			</form>
-			<form data-step="data-changed">
+			</section>
+			<section data-step="data-changed">
 				<h2>
 					Dein Bescheid wurde gewilligt. Du hast deine Daten nun geändert.
 				</h2>
@@ -156,8 +156,8 @@
 						Na endlich!
 					</button>
 				</div>
-			</form>
-			<form data-step="deadnaming">
+			</section>
+			<section data-step="deadnaming">
 				<h2>Oh nein. Jemand hat dich gedeadnamed.</h2>
 				<p>Zu welcher Personengruppe gehört die Person?</p>
 				<div class="button-group">
@@ -174,8 +174,8 @@
 						irgend so eine Person auf der Straße
 					</button>
 				</div>
-			</form>
-			<form data-step="deadnaming-family">
+			</section>
+			<section data-step="deadnaming-family">
 				<h2>
 					Die Person ist vom Offenbarungsverbot ausgenommen. Du bist machtlos.
 				</h2>
@@ -211,8 +211,8 @@
 						Ich will mich beschweren.
 					</button>
 				</div>
-			</form>
-			<form data-step="deadnaming-others">
+			</section>
+			<section data-step="deadnaming-others">
 				<h2>Hat die Person deinen Deadname nur dir gegenüber geäußert?</h2>
 				<div class="button-group">
 					<button type="button" data-go-to-step="deadnaming-just-to-you">
@@ -222,8 +222,8 @@
 						Nein.
 					</button>
 				</div>
-			</form>
-			<form data-step="deadnaming-just-to-you">
+			</section>
+			<section data-step="deadnaming-just-to-you">
 				<h2>Der Tatbestand der Offenbarung ist nicht erfüllt.</h2>
 				<blockquote>
 					Mangels Mitteilung an einen Dritten ist auch bei Äußerungen gegenüber
@@ -236,8 +236,8 @@
 						Ich will mich beschweren.
 					</button>
 				</div>
-			</form>
-			<form data-step="deadnaming-to-others">
+			</section>
+			<section data-step="deadnaming-to-others">
 				<h2>Hat dich die Person aus versehentlich gedeadnamed?</h2>
 				<div class="button-group">
 					<button type="button" data-go-to-step="deadnaming-by-accident">
@@ -247,8 +247,8 @@
 						Nein.
 					</button>
 				</div>
-			</form>
-			<form data-step="deadnaming-by-accident">
+			</section>
+			<section data-step="deadnaming-by-accident">
 				<h2>
 					Ohne Absicht keine Ordnungswidrigkeit. Das Offenbarungsverbot greift
 					nicht.
@@ -266,8 +266,8 @@
 						Ich will mich beschweren.
 					</button>
 				</div>
-			</form>
-			<form data-step="deadnaming-with-intent">
+			</section>
+			<section data-step="deadnaming-with-intent">
 				<h2>Kannst du die Absicht auch sicher nachweisen?</h2>
 				<p>
 					Falls nicht, viel Erfolg. Die Beweislast liegt bei dir. Falls du es
@@ -287,8 +287,8 @@
 						Ich will mich beschweren.
 					</button>
 				</div>
-			</form>
-			<form data-step="call-to-action">
+			</section>
+			<section data-step="call-to-action">
 				<h2>Was soll der Scheiß?</h2>
 				<p>
 					Es ist Zeit, sich zu beschweren. Wir haben
@@ -296,7 +296,7 @@
 						>gute Dinge verdient, und zwar jetzt.</a
 					>
 				</p>
-			</form>
+			</section>
 		</main>
 		<script>
 			const now = new Date();
@@ -312,7 +312,7 @@
 			});
 
 			const pushToHistory = () => {
-				const current = document.querySelector("form.current");
+				const current = document.querySelector("section.current");
 				const step = current.getAttribute("data-step");
 				const title = current.querySelector("h2").innerText;
 
@@ -322,10 +322,10 @@
 			const displayForm = (step) => {
 				// Hide all current elements
 				document
-					.querySelectorAll("form")
+					.querySelectorAll("section")
 					.forEach((x) => x.classList.remove("current"));
 				const elementsForStep = Array.from(
-					document.querySelectorAll(`form[data-step='${step}']`)
+					document.querySelectorAll(`section[data-step='${step}']`)
 				);
 
 				// If we only have one element, display it.
