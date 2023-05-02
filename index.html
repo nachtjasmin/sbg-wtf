@@ -313,20 +313,36 @@
 			};
 
 			const displayForm = (step) => {
-				const random = Math.random();
-				document.querySelectorAll("form").forEach((f) => {
-					const fstep = f.getAttribute("data-step");
-					const probStr = f.getAttribute("data-probability");
+				// Hide all current elements
+				document
+					.querySelectorAll("form")
+					.forEach((x) => x.classList.remove("current"));
+				const elementsForStep = Array.from(
+					document.querySelectorAll(`form[data-step='${step}']`)
+				);
 
-					// If there's no probability set, just display the step.
-					if (!probStr) {
-						f.classList.toggle("current", step === fstep);
+				// If we only have one element, display it.
+				if (elementsForStep.length == 1) {
+					elementsForStep[0].classList.add("current");
+					return;
+				}
+
+				const cumWeights = [];
+				for (let i = 0; i < elementsForStep.length; i += 1) {
+					const w = parseFloat(
+						elementsForStep[i].getAttribute("data-probability")
+					);
+
+					cumWeights[i] = w + (cumWeights[i - 1] || 0);
+				}
+
+				const rnd = cumWeights[cumWeights.length - 1] * Math.random();
+				for (let i = 0; i < elementsForStep.length; i += 1) {
+					if (cumWeights[i] >= rnd) {
+						elementsForStep[i].classList.add("current");
 						return;
 					}
-
-					const prob = parseFloat(probStr);
-					f.classList.toggle("current", step === fstep && prob >= random);
-				});
+				}
 			};
 
 			document.querySelectorAll("button").forEach((btn) => {
